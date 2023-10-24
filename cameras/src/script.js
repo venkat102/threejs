@@ -73,9 +73,9 @@ scene.add(mesh);
 
 gui.add(mesh, 'visible')
 gui.add(material, "wireframe")
-gui.add(parameters, "rotate").onChange(()=>{
+gui.add(parameters, "rotate").name('Spin').onChange(()=>{
 	if(parameters.rotate)
-	animate()
+		animate()
 })
 gui.addColor(parameters, 'color').onChange(()=>{
 	material.color.set(parameters.color)
