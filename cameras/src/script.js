@@ -5,7 +5,7 @@ import gsap from 'gsap'
 import * as dat from "dat.gui";
 
 const gui = new dat.GUI();
-gui.hide()
+// gui.hide()
 
 const cursor = {
 	x: 0,
@@ -157,6 +157,7 @@ const clock = new THREE.Clock();
 const animate = () => {
 	const elapsed_time = clock.getElapsedTime();
 
+	if(parameters.rotate)
 	mesh.rotation.y = elapsed_time
 
 	// camera.position.x = cursor.x * -3
@@ -172,7 +173,6 @@ const animate = () => {
 
 	renderer.render(scene, camera);
 
-	if(parameters.rotate)
 	window.requestAnimationFrame(animate);
 };
 
