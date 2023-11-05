@@ -26,7 +26,8 @@
 
 
 
-import './style.css'
+import './style/main.css'
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import * as THREE from 'three'
 
 const scene = new THREE.Scene()
@@ -53,6 +54,10 @@ scene.add(camera)
 
 
 const canvas = document.querySelector('.webgl')
+
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+
 const renderer = new THREE.WebGLRenderer({canvas})
 renderer.setSize(sizes.width, sizes.height)
 renderer.render(scene, camera)
@@ -66,6 +71,8 @@ const animate = () => {
 	mesh.rotation.y = elapsed_time
 
 	camera.lookAt(mesh.position)
+
+	controls.update();
 
 	renderer.render(scene, camera)
 
